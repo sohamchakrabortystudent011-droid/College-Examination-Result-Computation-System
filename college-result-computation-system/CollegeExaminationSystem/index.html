@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a1f44">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a1f44'/%3E%3Cpath d='M29 12 17 6 5 12l12 6z M8 14.5V20c0 2 4 3.6 9 3.6s9-1.6 9-3.6v-5.5 M29 12v7' fill='none' stroke='white' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<title>West Bengal State University — Examination &amp; Result Computation System</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/forms.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-auth="index">
+<noscript><div class="noscript-banner">This examination portal requires JavaScript (it stores records in your browser via IndexedDB). Please enable JavaScript.</div></noscript>
+<div class="landing">
+  <nav class="landing-nav">
+    <div class="brand-row" style="color:var(--navy)">
+      <div class="brand-crest" style="background:linear-gradient(150deg,var(--navy),var(--royal));border:0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><path d="M22 10v6"/></svg>
+      </div>
+      <div><b style="color:var(--navy);font-size:15px">West Bengal State University</b><br><span style="color:var(--muted);font-size:11.5px;letter-spacing:.4px">WBSU · Examination Portal</span></div>
+    </div>
+    <a class="btn btn-primary" href="login.html">Sign In</a>
+  </nav>
+
+  <section class="landing-hero">
+    <div>
+      <div class="crest">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><path d="M22 10v6"/></svg>
+      </div>
+      <h1>College Examination &amp;<br>Result Computation System</h1>
+      <p>One portal for examination routines, marks entry, automatic result computation and official marksheets — built for students, faculty and the examination cell across all eight semesters.</p>
+
+      <div class="landing-cards">
+        <a class="landing-role" href="login.html?role=student">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><path d="M22 10v6"/></svg>
+          <b>Student Login</b>
+          <span>Routines · Results · Marksheet download</span>
+          <span class="btn btn-sm btn-soft">Enter as Student</span>
+        </a>
+        <a class="landing-role" href="login.html?role=teacher">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          <b>Teacher Login</b>
+          <span>Assigned subjects · Marks entry · Class lists</span>
+          <span class="btn btn-sm btn-soft">Enter as Faculty</span>
+        </a>
+        <a class="landing-role" href="login.html?role=admin">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/></svg>
+          <b>Admin Login</b>
+          <span>Routines · Approvals · Result publication</span>
+          <span class="btn btn-sm btn-soft">Examination Cell</span>
+        </a>
+      </div>
+
+      <div id="continueBox" class="hidden mt-20">
+        <div class="alert info" style="max-width:520px;margin:22px auto 0;text-align:left">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <div>You have an active session as <b></b>. <a href="login.html">Continue to your dashboard</a>.</div>
+        </div>
+      </div>
+      <p class="mt-20 small muted">New student? <a href="register.html">Register here</a> to get portal access.</p>
+    </div>
+  </section>
+
+  <footer class="landing-foot">
+    <b>West Bengal State University (WBSU)</b> · Examination Cell · Barasat, North 24 Parganas, West Bengal — 700126<br>
+    Frontend demonstration build — all records are stored locally in this browser using IndexedDB.
+    Multi-device production use requires a secure server-side backend.
+  </footer>
+</div>
+
+<script src="js/database.js"></script>
+<script src="js/calculations.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

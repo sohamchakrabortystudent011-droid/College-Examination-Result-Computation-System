@@ -1,0 +1,178 @@
+/* =============================================================
+   College Examination System — style.css
+   Global design tokens, reset, buttons, badges, alerts, modals,
+   toasts and shared utilities used across every page.
+   Palette: Navy primary, Royal Blue secondary, white cards,
+   light-gray background, green/orange/red status colors.
+   ============================================================= */
+
+:root{
+  --navy:#0a1f44;                 /* primary color            */
+  --navy-2:#0d2a5c;
+  --royal:#2b4fd8;                /* secondary color          */
+  --royal-soft:#e9efff;
+  --sky:#4f7cff;
+  --bg:#f3f6fb;                   /* light gray background    */
+  --card:#ffffff;
+  --line:#e4e9f2;
+  --text:#1d2740;
+  --muted:#667085;
+  --success:#16a34a;
+  --success-soft:#e7f7ee;
+  --warning:#d97706;
+  --warning-soft:#fdf2e3;
+  --danger:#dc2626;
+  --danger-soft:#fdeaea;
+  --info:#0284c7;
+  --info-soft:#e6f4fc;
+  --radius:14px;
+  --shadow:0 6px 24px rgba(10,31,68,.07);
+  --shadow-lg:0 18px 50px rgba(10,31,68,.16);
+  --font:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;min-height:100vh}
+img{max-width:100%;display:block}
+a{color:var(--royal);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25}
+::selection{background:var(--royal);color:#fff}
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-thumb{background:#c4cede;border-radius:8px;border:2px solid transparent;background-clip:content-box}
+*::-webkit-scrollbar-track{background:transparent}
+
+/* ---------------- buttons ---------------- */
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;padding:10px 18px;border-radius:10px;transition:.18s ease;line-height:1.2;text-decoration:none;white-space:nowrap}
+.btn svg{width:16px;height:16px;flex:none}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--navy-2)}
+.btn-royal{background:var(--royal);color:#fff}
+.btn-royal:hover{background:#2240b8}
+.btn-success{background:var(--success);color:#fff}
+.btn-success:hover{background:#12813c}
+.btn-warning{background:var(--warning);color:#fff}
+.btn-danger{background:var(--danger);color:#fff}
+.btn-danger:hover{background:#b41e1e}
+.btn-soft{background:var(--royal-soft);color:var(--royal)}
+.btn-outline{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.btn-outline:hover{border-color:var(--royal);color:var(--royal)}
+.btn-ghost{background:transparent;color:var(--muted)}
+.btn-ghost:hover{background:#eef2f9;color:var(--navy)}
+.btn-sm{padding:7px 12px;font-size:13px;border-radius:8px}
+.btn-lg{padding:13px 26px;font-size:15px}
+.btn-block{width:100%;justify-content:center}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:.15s;flex:none}
+.icon-btn:hover{color:var(--royal);border-color:var(--royal);text-decoration:none}
+.icon-btn.danger:hover{color:var(--danger);border-color:var(--danger)}
+.icon-btn svg{width:16px;height:16px}
+
+/* ---------------- badges ---------------- */
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:#eef1f7;color:var(--muted);white-space:nowrap}
+.badge.success{background:var(--success-soft);color:var(--success)}
+.badge.warning{background:var(--warning-soft);color:var(--warning)}
+.badge.danger{background:var(--danger-soft);color:var(--danger)}
+.badge.info{background:var(--info-soft);color:var(--info)}
+.badge.royal{background:var(--royal-soft);color:var(--royal)}
+.badge.navy{background:var(--navy);color:#fff}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block}
+
+/* ---------------- alerts ---------------- */
+.alert{display:flex;gap:10px;align-items:flex-start;padding:12px 16px;border-radius:12px;font-size:14px;border:1px solid transparent;margin-bottom:14px}
+.alert svg{width:18px;height:18px;flex:none;margin-top:1px}
+.alert.info{background:var(--info-soft);border-color:#bfe3f6;color:#0b547c}
+.alert.success{background:var(--success-soft);border-color:#c4ecd4;color:#0f6a32}
+.alert.warning{background:var(--warning-soft);border-color:#f3ddb8;color:#92580a}
+.alert.danger{background:#fdeaea;border-color:#f6c8c8;color:#9c1f1f}
+
+/* ---------------- modal ---------------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(10,31,68,.52);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:200;opacity:0;pointer-events:none;transition:.2s}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal{background:#fff;border-radius:18px;width:100%;max-width:560px;max-height:92vh;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);transform:translateY(14px) scale(.98);transition:.2s}
+.modal-overlay.open .modal{transform:none}
+.modal.wide{max-width:880px}
+.modal.xl{max-width:1120px}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line)}
+.modal-head h3{font-size:17px}
+.modal-body{padding:22px;overflow:auto}
+.modal-foot{padding:14px 22px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.modal-close{background:#f0f3f9;border:0;width:32px;height:32px;border-radius:9px;cursor:pointer;color:var(--muted);display:flex;align-items:center;justify-content:center;flex:none}
+.modal-close:hover{background:var(--danger-soft);color:var(--danger)}
+.modal-close svg{width:15px;height:15px}
+
+/* ---------------- toast ---------------- */
+.toast-stack{position:fixed;top:18px;right:18px;z-index:400;display:flex;flex-direction:column;gap:10px;max-width:360px}
+.toast{display:flex;gap:10px;align-items:flex-start;background:#fff;border-radius:12px;padding:13px 16px;box-shadow:var(--shadow-lg);border-left:4px solid var(--royal);animation:toastIn .25s ease}
+.toast.success{border-left-color:var(--success)}.toast.success svg{color:var(--success)}
+.toast.error{border-left-color:var(--danger)}.toast.error svg{color:var(--danger)}
+.toast.warning{border-left-color:var(--warning)}.toast.warning svg{color:var(--warning)}
+.toast b{display:block;font-size:14px;color:var(--navy)}
+.toast span{font-size:13px;color:var(--muted)}
+.toast svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--royal)}
+@keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1}}
+.toast.out{opacity:0;transform:translateX(30px);transition:.3s}
+
+/* ---------------- cross-role data sync banner ---------------- */
+.sync-bar{position:fixed;left:50%;bottom:20px;transform:translate(-50%,18px);z-index:390;
+  display:flex;align-items:center;gap:12px;max-width:min(620px,calc(100vw - 28px));
+  background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.16);
+  border-radius:13px;padding:11px 12px 11px 16px;box-shadow:var(--shadow-lg);
+  opacity:0;pointer-events:none;transition:.2s}
+.sync-bar.show{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+.sync-bar svg{width:18px;height:18px;color:#9fb5ff;flex:none}
+.sync-bar span{font-size:13px;line-height:1.35;flex:1}
+.sync-bar .btn{padding:7px 12px;background:#fff;color:var(--navy);font-size:12.5px}
+.sync-bar .btn:hover{background:var(--royal-soft)}
+
+/* ---------------- empty states / loading ---------------- */
+.empty-state{text-align:center;padding:48px 20px;color:var(--muted)}
+.empty-state svg{width:46px;height:46px;color:#b6c2d8;margin:0 auto 12px;display:block}
+.empty-state h3{color:var(--navy);margin-bottom:6px;font-size:16px}
+.empty-state p{font-size:13.5px;max-width:420px;margin:0 auto}
+.spinner{width:34px;height:34px;border:3.5px solid var(--royal-soft);border-top-color:var(--royal);border-radius:50%;animation:spin .8s linear infinite;margin:30px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------------- utility helpers ---------------- */
+.muted{color:var(--muted)}
+.small{font-size:12.5px}
+.big{font-size:15.5px}
+.bold{font-weight:700}
+.flex{display:flex}
+.col{display:flex;flex-direction:column}
+.items-center{align-items:center}
+.justify-between{justify-content:space-between}
+.justify-end{justify-content:flex-end}
+.wrap{flex-wrap:wrap}
+.grow{flex:1}
+.gap-6{gap:6px}.gap-10{gap:10px}.gap-14{gap:14px}.gap-20{gap:20px}
+.mt-6{margin-top:6px}.mt-10{margin-top:10px}.mt-14{margin-top:14px}.mt-20{margin-top:20px}
+.mb-6{margin-bottom:6px}.mb-10{margin-bottom:10px}.mb-14{margin-bottom:14px}.mb-20{margin-bottom:20px}
+.hidden{display:none!important}
+.text-right{text-align:right}
+.text-center{text-align:center}
+.text-success{color:var(--success)}
+.text-danger{color:var(--danger)}
+.text-warning{color:var(--warning)}
+.text-royal{color:var(--royal)}
+.text-navy{color:var(--navy)}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid #edf1f8}
+.divider{height:1px;background:var(--line);margin:14px 0}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;overflow:hidden;flex:none}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar.lg{width:56px;height:56px;font-size:19px}
+.avatar.xl{width:92px;height:92px;font-size:30px;border-radius:22px}
+
+/* ---------------- accessibility & motion ---------------- */
+:focus-visible{outline:2.5px solid var(--royal);outline-offset:2px;border-radius:6px}
+.noscript-banner{background:var(--danger);color:#fff;text-align:center;padding:12px 16px;font-weight:600;font-size:14px}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+/* ---------------- long-table utility: sticky header ---------------- */
+.table-wrap.scroll{max-height:560px;overflow:auto}
+.table-wrap.scroll thead th{position:sticky;top:0;z-index:5;box-shadow:0 1px 0 var(--line)}

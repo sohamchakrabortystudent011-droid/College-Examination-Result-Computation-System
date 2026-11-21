@@ -1,0 +1,86 @@
+/* =============================================================
+   forms.css — Form controls, grids, validation states,
+   file upload drop zones, filter bars
+   ============================================================= */
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-grid .span-2{grid-column:span 2}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label{font-size:12.5px;font-weight:600;color:var(--navy)}
+.field label .req{color:var(--danger)}
+.field input,.field select,.field textarea{font-family:inherit;font-size:14px;color:var(--text);padding:10px 13px;border:1.5px solid var(--line);border-radius:10px;background:#fff;transition:.15s;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--royal);box-shadow:0 0 0 3.5px rgba(43,79,216,.13)}
+.field input:disabled,.field select:disabled{background:#f4f6fb;color:var(--muted)}
+.field textarea{resize:vertical;min-height:78px}
+.field .help{font-size:11.5px;color:var(--muted)}
+.field.error input,.field.error select{border-color:var(--danger);background:#fff7f7}
+.field .err-msg{font-size:11.5px;color:var(--danger);display:none}
+.field.error .err-msg{display:block}
+.form-error{display:none;background:var(--danger-soft);border:1px solid #f6c8c8;color:#9c1f1f;font-size:13.5px;padding:11px 14px;border-radius:11px;margin-bottom:14px}
+.form-error.show{display:flex;gap:9px;align-items:center;animation:shake .35s ease}
+.form-error svg{width:17px;height:17px;flex:none}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.form-success{display:none;background:var(--success-soft);border:1px solid #c4ecd4;color:#0f6a32;font-size:13.5px;padding:11px 14px;border-radius:11px;margin-bottom:14px}
+.form-success.show{display:flex;gap:9px;align-items:center}
+.form-success svg{width:17px;height:17px;flex:none}
+.form-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap}
+
+/* checkbox / radio rows */
+.check-row{display:flex;align-items:center;gap:8px;font-size:13.5px;cursor:pointer}
+.check-row input{width:16px;height:16px;accent-color:var(--royal)}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;border:1.5px solid var(--line);border-radius:11px;padding:12px;max-height:220px;overflow:auto}
+
+/* file drop zone */
+.drop-zone{border:2px dashed #c7d2ec;border-radius:14px;padding:26px 18px;text-align:center;background:#f8faff;cursor:pointer;transition:.18s}
+.drop-zone:hover,.drop-zone.drag{border-color:var(--royal);background:var(--royal-soft)}
+.drop-zone svg{width:34px;height:34px;color:var(--royal);margin:0 auto 10px;display:block}
+.drop-zone b{color:var(--navy);font-size:14px;display:block}
+.drop-zone p{font-size:12px;color:var(--muted);margin-top:3px}
+.drop-zone input{display:none}
+.file-chip{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:12px;padding:11px 14px;background:#fff}
+.file-chip svg{width:22px;height:22px;color:var(--royal);flex:none}
+.file-chip b{font-size:13.5px;color:var(--navy);display:block}
+.file-chip span{font-size:11.5px;color:var(--muted)}
+.file-chip .icon-btn{margin-left:auto}
+
+/* filter / toolbar above tables */
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.toolbar .search-box{position:relative;flex:1;min-width:200px;max-width:340px}
+.toolbar .search-box input{width:100%;padding:9px 13px 9px 38px;border:1.5px solid var(--line);border-radius:10px;font-size:13.5px;font-family:inherit;background:#fff}
+.toolbar .search-box input:focus{outline:0;border-color:var(--royal)}
+.toolbar .search-box svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted)}
+.toolbar select{padding:9px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:13px;font-family:inherit;background:#fff;color:var(--text)}
+.toolbar select:focus{outline:0;border-color:var(--royal)}
+.toolbar .spacer{flex:1}
+
+/* tab pills (odd/even etc.) */
+.pill-tabs{display:inline-flex;background:#e9edf6;border-radius:11px;padding:4px;gap:4px}
+.pill-tabs button{border:0;background:transparent;padding:8px 16px;border-radius:8px;font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:.15s}
+.pill-tabs button.active{background:#fff;color:var(--royal);box-shadow:0 2px 8px rgba(10,31,68,.1)}
+.pill-tabs button:hover:not(.active){color:var(--navy)}
+
+/* segmented inside modals */
+.seg{display:flex;border:1.5px solid var(--line);border-radius:11px;overflow:hidden}
+.seg button{flex:1;border:0;background:#fff;padding:10px;font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px}
+.seg button svg{width:15px;height:15px}
+.seg button.active{background:var(--royal);color:#fff}
+
+/* inline editable routine entry rows */
+.entry-row{display:grid;grid-template-columns:1.1fr 1.6fr 200px 96px 96px 104px 36px;gap:8px;align-items:center;margin-bottom:8px}
+.entry-row input{padding:8px 10px;border:1.5px solid var(--line);border-radius:9px;font-size:12.5px;font-family:inherit;width:100%}
+.entry-row input:focus{outline:0;border-color:var(--royal)}
+.entry-head{font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:#98a5bd;font-weight:700;padding:0 2px;margin-bottom:0}
+
+/* manual date entry: day / month / year */
+.manual-date{display:grid;grid-template-columns:76px 1fr 96px;gap:8px}
+.manual-date input{font-family:inherit;font-size:14px;color:var(--text);padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;width:100%;transition:.15s;text-align:left}
+.manual-date .df-day,.manual-date .df-year{text-align:center}
+.manual-date input:focus{outline:0;border-color:var(--royal);box-shadow:0 0 0 3.5px rgba(43,79,216,.13)}
+.manual-date input.invalid{border-color:var(--danger);background:#fff7f7}
+
+/* compact variant used inside routine entry rows */
+.entry-date{display:grid;grid-template-columns:42px 62px 58px;gap:4px}
+.entry-date input{padding:8px 6px;border:1.5px solid var(--line);border-radius:8px;font-size:12px;font-family:inherit;width:100%;text-align:center}
+.entry-date .df-month{text-align:left}
+.entry-date input:focus{outline:0;border-color:var(--royal)}
+.entry-date input.invalid{border-color:var(--danger);background:#fff7f7}

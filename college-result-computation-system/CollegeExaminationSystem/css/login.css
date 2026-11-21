@@ -1,0 +1,60 @@
+/* =============================================================
+   login.css — Landing, three-option login and registration
+   ============================================================= */
+
+.auth-layout{min-height:100vh;display:grid;grid-template-columns:minmax(360px,44%) 1fr}
+
+/* left brand panel */
+.auth-brand{background:linear-gradient(160deg,var(--navy) 0%,#0f2fopia 0%,#0f2f66 55%,var(--royal) 130%);background:linear-gradient(160deg,var(--navy) 0%,#0f2f66 55%,var(--royal) 130%);color:#fff;padding:52px 48px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.auth-brand::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;border:70px solid rgba(255,255,255,.05);right:-160px;bottom:-160px}
+.auth-brand::before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;border:46px solid rgba(255,255,255,.045);left:-90px;top:22%}
+.brand-row{display:flex;align-items:center;gap:14px;position:relative;z-index:1}
+.brand-crest{width:54px;height:54px;border-radius:15px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;flex:none}
+.brand-crest svg{width:30px;height:30px;color:#fff}
+.brand-row h1{font-size:20px;color:#fff}
+.brand-row span{font-size:12.5px;color:#b9c8ec;letter-spacing:.4px}
+.auth-hero{margin-top:auto;margin-bottom:auto;padding:48px 0;position:relative;z-index:1}
+.auth-hero h2{font-size:32px;color:#fff;line-height:1.25;margin-bottom:14px}
+.auth-hero p{color:#c4d2f2;font-size:15px;max-width:420px}
+.auth-features{margin-top:30px;display:flex;flex-direction:column;gap:12px}
+.auth-features li{list-style:none;display:flex;gap:10px;align-items:center;color:#dbe5fb;font-size:14px}
+.auth-features svg{width:18px;height:18px;color:#7ee2ae;flex:none}
+.auth-foot{position:relative;z-index:1;color:#93a7d6;font-size:12px}
+
+/* right panel */
+.auth-main{display:flex;align-items:center;justify-content:center;padding:40px 28px}
+.auth-box{width:100%;max-width:520px}
+.auth-box>h2{font-size:24px;margin-bottom:4px}
+.auth-box>p{color:var(--muted);margin-bottom:22px}
+
+/* three role cards */
+.role-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
+.role-card{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:14px 8px;text-align:center;cursor:pointer;transition:.18s;font-family:inherit;color:var(--text)}
+.role-card svg{width:24px;height:24px;color:var(--muted);margin:0 auto 8px;display:block;transition:.18s}
+.role-card b{display:block;font-size:13.5px;color:var(--navy)}
+.role-card span{font-size:11px;color:var(--muted)}
+.role-card:hover{border-color:var(--sky);transform:translateY(-2px)}
+.role-card.active{border-color:var(--royal);background:var(--royal-soft);box-shadow:0 8px 20px rgba(43,79,216,.14)}
+.role-card.active svg{color:var(--royal)}
+
+/* demo credentials hint */
+.demo-creds{margin-top:20px;background:#f6f8fd;border:1px dashed #c7d2ec;border-radius:12px;padding:12px 14px;font-size:12.5px;color:var(--muted)}
+.demo-creds b{color:var(--navy)}
+.demo-creds code{background:#e9efff;color:var(--royal);padding:1px 6px;border-radius:6px;font-size:11.5px}
+
+/* landing page (index.html) */
+.landing{min-height:100vh;display:flex;flex-direction:column}
+.landing-nav{display:flex;align-items:center;justify-content:space-between;padding:20px 6%;background:#fff;border-bottom:1px solid var(--line)}
+.landing-hero{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 24px;background:radial-gradient(1000px 500px at 50% -10%,var(--royal-soft),var(--bg))}
+.landing-hero .crest{width:86px;height:86px;border-radius:26px;background:linear-gradient(150deg,var(--navy),var(--royal));display:flex;align-items:center;justify-content:center;margin:0 auto 22px;box-shadow:var(--shadow-lg)}
+.landing-hero .crest svg{width:46px;height:46px;color:#fff}
+.landing-hero h1{font-size:clamp(28px,4vw,44px);margin-bottom:12px}
+.landing-hero p{color:var(--muted);max-width:560px;margin:0 auto 34px}
+.landing-cards{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.landing-role{width:220px;background:#fff;border:1px solid #edf1f8;border-radius:18px;padding:24px 18px;box-shadow:var(--shadow);transition:.2s;text-align:center}
+.landing-role svg{width:30px;height:30px;color:var(--royal);margin:0 auto 12px;display:block}
+.landing-role b{display:block;color:var(--navy);margin-bottom:4px}
+.landing-role span{font-size:12.5px;color:var(--muted);display:block;margin-bottom:14px;min-height:36px}
+.landing-role:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);text-decoration:none}
+.landing-foot{background:var(--navy);color:#93a7d6;text-align:center;padding:18px;font-size:12.5px}
+.landing-foot b{color:#fff}
